@@ -1,4 +1,25 @@
+
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
-net issue
+<section>
+    <div class="container">
+        <div class="row">
+            {% for product in products %}
+            <div class="col-md-4">
+                <div class="card m-2" style="width: 18rem; height: 18rem;">
+                    <img class="card-img-top" src="{{ product.image.url }}" height="200px" alt="Card image cap">
+                    <div class="card-body">
+                      <p class="card-text">{{ product.title }}</p>
+                      <p class="card-text">{{ product.price }} tk</p>
+                    </div>
+                  </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% for product in products %}
+        
+        {% endfor %}
+    </div>
+</section>
 {% endblock %}
