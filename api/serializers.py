@@ -12,6 +12,9 @@ class UserSerializers(serializers.ModelSerializer):
 		model = User
 		fields = ['id', 'username', 'password', 'email',
 				  'first_name', 'last_name'] 
+		extra_kwargs = {
+            'password': {'write_only': True},
+        }
 
 	# create overwrite for password hashing and grouping
 	def create(self, validated_data):
@@ -30,7 +33,6 @@ class ProductSerializers(serializers.ModelSerializer):
 		fields = ['id', 'title', 'description', 'price',
 				  'quantity', 'image', 'created_at', 'updated_at', 'seller'] 
 
-	# create overwrite for password hashing and grouping
 	def create(self, validated_data):
 		current_user = self.context['request'].user
 		validated_data['seller'] = current_user
