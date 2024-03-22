@@ -3,12 +3,13 @@ from rest_framework.routers import DefaultRouter
 
 from .views import (
     UserViewset,
+    ProductViewset,
 )
 
 router = DefaultRouter()
 # Account creation, edition, deletions
 router.register("auth/user", UserViewset, basename="authuser")
-# router.register("auth/vendor", VendorViewset, basename="authvendor")
+router.register("product", ProductViewset, basename="product")
 # router.register("weather", WeatherViewset, basename="weather")
 # router.register("product", ProductViewset, basename="product")
 

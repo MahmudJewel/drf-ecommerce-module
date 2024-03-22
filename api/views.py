@@ -15,7 +15,6 @@ from rest_framework import status
 from rest_framework import generics
 
 from django.contrib.auth import get_user_model
-
 User = get_user_model()
 
 import json
@@ -23,13 +22,13 @@ import urllib.request
 
 from .serializers import (
 	UserSerializers,
-	# VendorSerializers,
+	ProductSerializers,
 	# WeatherSerializers,
 	# ProductSerializers
 )
 
-# from product.models import WeatherTypes, Product
-# from .custompermissions import IsCustomer, IsVendor
+from product.models import Product
+from .custompermissions import IsSeller, IsSellerOrAdmin
 
 
 # Create your views here.
@@ -47,3 +46,17 @@ class UserViewset(viewsets.ModelViewSet):
 		else:
 			self.permission_classes = [IsAdminUser, ]
 		return super(UserViewset, self).get_permissions()
+
+
+# Product creation, edition, deletion through viewset
+class ProductViewset(viewsets.ModelViewSet):
+	serializer_class = ProductSerializers
+	queryset = Product.objects.all()
+	# queryset = Group.objects.get(name="CUSTOMER").user_set.all()
+
+	def get_permissions(self):
+		if self.request.method == 'GET':
+			self.permission_classes = [AllowAny, ]
+		else:
+			self.permission_classes = [IsSellerOrAdmin, ]
+		return super(ProductViewset, self).get_permissions()

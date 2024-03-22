@@ -43,11 +43,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+
     # installed app 
     'authmanagement',
     'home',
     'api',
+    'product',
 
     # libraries
     'rest_framework',
@@ -146,8 +147,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIR = [STATIC_DIR] # Search during collectstatic
-STATIC_ROOT = STATIC_ROOT_DIR # collectstatic==> automatically created 'autoStatic' folder.
+STATICFILES_DIR = [STATIC_DIR] 
+STATIC_ROOT = STATIC_ROOT_DIR 
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
 
