@@ -10,7 +10,7 @@ class Cart(CommonModel):
     user = models.OneToOneField(User, related_name='cart', on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.user.username
+        return f"{self.user.username}'s cart"
 
 class CartItem(CommonModel):
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE)

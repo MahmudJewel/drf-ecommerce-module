@@ -26,6 +26,9 @@ class OrderItem(CommonModel):
     quantity = models.PositiveIntegerField(default=1)
     price = models.PositiveIntegerField(null=True, blank=True)
 
+    def __str__(self):
+        return f"{self.order.user.username}'s order item {self.product.title}. quantity={self.quantity}"
+
 
 # daily revenue
 class DailyData(CommonModel):
