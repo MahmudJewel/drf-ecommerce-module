@@ -12,6 +12,7 @@ User = get_user_model()
 
 from .serializers import CartItemSerializers
 from cart.models import Cart, CartItem
+
 # CartItem creation, edition, deletion through viewset
 class CartItemViewset(viewsets.ModelViewSet):
     serializer_class = CartItemSerializers
@@ -22,9 +23,3 @@ class CartItemViewset(viewsets.ModelViewSet):
         # Only return cart items associated with the current user's cart
         return self.queryset.filter(cart__user=self.request.user)
 
-    # def get_permissions(self):
-    #     if self.request.method == 'POST':
-    #         self.permission_classes = [IsAuthenticated, ]
-    #     else:
-    #         self.permission_classes = [IsAuthenticatedOrAdmin, ]
-    #     return super(CartItemViewset, self).get_permissions()
