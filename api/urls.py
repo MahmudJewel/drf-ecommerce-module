@@ -5,11 +5,13 @@ from .views import (
     UserViewset,
     ProductViewset,
 )
+from api.cart.viewset import CartItemViewset
 
 router = DefaultRouter()
 # Account creation, edition, deletions
 router.register("auth/user", UserViewset, basename="authuser")
 router.register("product", ProductViewset, basename="product")
+router.register("cartitem", CartItemViewset, basename="cartitem")
 # router.register("weather", WeatherViewset, basename="weather")
 # router.register("product", ProductViewset, basename="product")
 
