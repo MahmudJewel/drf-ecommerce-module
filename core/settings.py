@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     'home',
     'api',
     'product',
+    'cart',
+    'order',
 
     # libraries
     'rest_framework',
