@@ -1,25 +1,13 @@
-
 {% extends 'base.html' %}
 {% load static %}
+
 {% block content %}
+<head>
+    <script src="https://unpkg.com/htmx.org@1.9.11" integrity="sha384-0gxUXCCR8yv9FM2b+U3FDbsKthCI66oH5IA9fHppQq9DDMHuMauqq1ZHBpJxQ0J0" crossorigin="anonymous"></script>
+</head>
 <section>
     <div class="container">
-        <div class="row">
-            {% for product in products %}
-            <div class="col-md-4">
-                <div class="card m-2" style="width: 18rem; height: 18rem;">
-                    <img class="card-img-top" src="{{ product.image.url }}" height="200px" alt="Card image cap">
-                    <div class="card-body">
-                      <p class="card-text">{{ product.title }}</p>
-                      <p class="card-text">{{ product.price }} tk</p>
-                    </div>
-                  </div>
-            </div>
-            {% endfor %}
-        </div>
-        {% for product in products %}
-        
-        {% endfor %}
+        {% include 'product-list.html' with products=products %}
     </div>
 </section>
 {% endblock %}

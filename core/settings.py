@@ -54,7 +54,8 @@ INSTALLED_APPS = [
 
     # libraries
     'rest_framework',
-	'rest_framework_simplejwt', 
+	'rest_framework_simplejwt',
+    'django_htmx' 
 ]
 
 # for jwt token auth
@@ -80,6 +81,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # htmx 
+    'django_htmx.middleware.HtmxMiddleware',
 ]
 
 ROOT_URLCONF = 'core.urls'

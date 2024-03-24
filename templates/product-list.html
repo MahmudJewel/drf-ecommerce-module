@@ -1,0 +1,34 @@
+
+<div class="row">
+    {% for product in products %}
+    {% if forloop.last %}
+        <div 
+                hx-trigger="revealed"
+                hx-get="{% url 'home' %}?page={{ page_obj.number|add:1 }}"
+                hx-swap="afterend"
+                class="col-md-4"
+            >
+            <div class="card m-2" style="width: 18rem; height: 18rem;">
+                <img class="card-img-top" src="{{ product.image.url }}" height="200px" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">{{ product.title }}</p>
+                  <p class="card-text">{{ product.price }} tk</p>
+                  <!-- <p class="card-text">{{ product.id }}</p> -->
+                </div>
+              </div>
+        </div>
+    {% else %}
+    
+    <div class="col-md-4">
+        <div class="card m-2" style="width: 18rem; height: 18rem;">
+            <img class="card-img-top" src="{{ product.image.url }}" height="200px" alt="Card image cap">
+            <div class="card-body">
+              <p class="card-text">{{ product.title }}</p>
+              <p class="card-text">{{ product.price }} tk</p>
+              <!-- <p class="card-text">{{ product.id }}</p> -->
+            </div>
+          </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
