@@ -1,7 +1,6 @@
 from django.views.generic import ListView
 # import 
 from product.models import Product
-
 class HomePageView(ListView):
     template_name = "home.html"
     model = Product
@@ -13,3 +12,4 @@ class HomePageView(ListView):
             return "product-list.html"
         else:
             return self.template_name
+

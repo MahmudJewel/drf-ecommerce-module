@@ -55,7 +55,10 @@ INSTALLED_APPS = [
     # libraries
     'rest_framework',
 	'rest_framework_simplejwt',
-    'django_htmx' 
+    'django_htmx',
+    # celery 
+    'django_celery_results',
+    'django_celery_beat', 
 ]
 
 # for jwt token auth
@@ -72,6 +75,19 @@ SIMPLE_JWT = {
 	'ALGORITHM': 'HS256',
 	'AUTH_HEADER_TYPES': ('Bearer',),
 }
+
+# Celery settings ===================
+# CELERY_BROKER_URL = 'redis://127.0.0.1:6379/0'
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'Asia/Dhaka'
+
+CELERY_RESULT_BACKEND = 'django-db'
+
+# CELERY BEAT
+CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
