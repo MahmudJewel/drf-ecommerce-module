@@ -1,0 +1,10 @@
+
+
+CartItem, Price will get from product. so remove price from CartItem-Model
+
+
+if Order created, then  remove the product's quantity ==> not applied yet.
+
+
+
+
