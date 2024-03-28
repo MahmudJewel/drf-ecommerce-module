@@ -1,5 +1,14 @@
 # Ecommerce Module and Infinite Scroll
-Live server ==> http://mahmud2.pythonanywhere.com/
+User, Product, Cart, CartItem, Order, OrderItem and DailyData data modules for ecommerce.
+
+## Requirements
+* You need to build restful API of Multi-vendor E-commerce. You should include following models. (User, Product, Cart, CartItem, Order, DailyData) 
+* Feature 1. There are 2 types of User(Buyer / Seller) 
+* Feature 2. User can store item in their cart 
+* Feature 3. User can order items in cart. After Order is created, Cart should be empty 
+* Feature 4. Every 24 hours, Save Daily Revenue Data based on Order 
+* Feature 5. [Front End] Using Django Template, You need to implement infinite scroll of product list. 12 products should be fetched when you reach bottom of screen. 
+
 ## API List
 ### Login & verify user:
 | SRL | METHOD | ROUTE | FUNCTIONALITY | FIELDS | ACCESS |
@@ -76,8 +85,7 @@ Note the `(venv)` in front of the prompt. This indicates that this terminal
 session operates in a virtual environment set up by `virtualenv2`.
 
 Once `pip` has finished downloading the dependencies
-
-Then configured celery in your device for auto collect daily revenue.
+* Then configured celery in your device for auto collect daily revenue.
 
 # Tools
 ### Back-end
@@ -97,4 +105,4 @@ Then configured celery in your device for auto collect daily revenue.
     django-htmx
 
 ### Happy Coding
-
+Developed by **Mahmud**
